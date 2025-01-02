@@ -15,8 +15,6 @@ COLLECTION_NAME = "todo_lists"
 MONGODB_URI = os.environ["MONGODB_URI"]
 DEBUG = os.environ.get("DEBUG", "").strip().lower() in {"1", "true", "on", "yes"}
 
-print(MONGODB_URI)
-
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
