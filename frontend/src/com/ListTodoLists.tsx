@@ -23,31 +23,31 @@ function ListToDoLists({
 }: ListToDoListsProps) {
   const labelRef = useRef<HTMLInputElement>(null);
 
-  if (listSummaries === null) {
-    return <div className="ListToDoLists loading">Loading to-do lists ...</div>;
-  } else if (listSummaries.length === 0) {
-    return (
-      <div className="ListToDoLists">
-        <div className="box">
-          <label>
-            New To-Do List:&nbsp;
-            <input ref={labelRef} type="text" />
-          </label>
-          <button
-            onClick={() => {
-              if (labelRef.current) {
-                handleNewToDoList(labelRef.current.value);
-                labelRef.current.value = "";
-              }
-            }}
-          >
-            New
-          </button>
-        </div>
-        <p>There are no to-do lists!</p>
-      </div>
-    );
-  }
+  // if (!listSummaries === null) {
+  //   return <div className="ListToDoLists loading">Loading to-do lists ...</div>;
+  // } else if (listSummaries.length === 0) {
+  //   return (
+  //     <div className="ListToDoLists">
+  //       <div className="box">
+  //         <label>
+  //           New To-Do List:&nbsp;
+  //           <input ref={labelRef} type="text" />
+  //         </label>
+  //         <button
+  //           onClick={() => {
+  //             if (labelRef.current) {
+  //               handleNewToDoList(labelRef.current.value);
+  //               labelRef.current.value = "";
+  //             }
+  //           }}
+  //         >
+  //           New
+  //         </button>
+  //       </div>
+  //       <p>There are no to-do lists!</p>
+  //     </div>
+  //   );
+  // }
   return (
     <div className="ListToDoLists">
       <h1>All To-Do Lists</h1>
