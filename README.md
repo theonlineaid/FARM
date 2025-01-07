@@ -1,3 +1,4 @@
+## Farm Stack Aplication
 
 ```
 sudo apu update
@@ -11,4 +12,5 @@ sudo python3 -m venv venv
 source venv/bin/activate
 pip install "fastapi[all]" "motor[srv]" beanie aiostream
 pip freeze > requirements.txt
+
 ```
