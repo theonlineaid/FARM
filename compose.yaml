@@ -9,6 +9,17 @@ services:
     depends_on:
       - backend
       - frontend
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=farm
+      - MONGO_INITDB_ROOT_PASSWORD=farmstack
+
   frontend:
     image: "node:22"
     user: "node"
@@ -23,6 +34,7 @@ services:
     ports:
       - "3000:3000"
     command: "npm run dev"
+    
   backend:
     image: todo-app/backend
     build: ./backend
