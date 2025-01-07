@@ -14,3 +14,12 @@ pip install "fastapi[all]" "motor[srv]" beanie aiostream
 pip freeze > requirements.txt
 
 ```
+
+
+## DB Backup in interactive mode
+
+```
+mongodump --host localhost --port 27017 --username "username" --password "password" --authenticationDatabase admin --out /data/db/backup-$(date +\%Y\%m\%d)
+chmod -R 777 ./backup_mongo
+
+```
