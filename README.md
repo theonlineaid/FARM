@@ -99,3 +99,22 @@ After running the `mongorestore` command, you can verify that the data was resto
 Now your MongoDB backup should be restored to your MongoDB Atlas cluster.
 
 Let me know if you run into any issues or need further assistance!
+
+
+### Backup script 
+```
+while true; do
+    # Set the backup directory with a date stamp
+    BACKUP_DIR="/backup/backup-$(date +\%Y\%m\%d)"
+
+    # Create the backup directory if it doesn't exist
+    mkdir -p $BACKUP_DIR
+
+    # Run the mongodump command to back up the farm database
+    mongodump --uri="mongodb+srv://farm:farmstack@cluster0.arfre.mongodb.net/farm" --out=$BACKUP_DIR
+
+    # Sleep for 24 hours (86400 seconds)
+    sleep 86400
+done
+
+```

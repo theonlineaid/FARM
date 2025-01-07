@@ -22,14 +22,14 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=farmstack
 
   
-  # backup:
-  #   image: mongo
-  #   depends_on:
-  #     - mongodb
-  #   volumes:
-  #     - ./backup_mongo:/data/backup
-  #     - ./mongodb:/data/db
-  #   entrypoint: ["bash", "-c", "while true; do /backup/backup_mongo.sh; sleep 86400; done"]
+  backup:
+    image: mongo
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backup:/backup
+      - ./mongodb:/data/db
+    entrypoint: ["bash", "-c", "while true; do /backup/backup_mongo.sh; sleep 86400; done"]
 
   frontend:
     image: "node:22"
